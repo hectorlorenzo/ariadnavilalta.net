@@ -1,0 +1,596 @@
+@import 'libs/normalize.scss';
+@import 'libs/swipe.scss';
+
+// override grids variables
+$breakpoints: (
+    'palm' '(max-width: 600px)',
+    'portable' '(min-width: 601px)',
+    'desk' '(min-width: 1200px)'
+);
+
+$breakpoint-has-widths: ('palm', 'portable', 'desk');
+$breakpoint-has-push:   ('palm', 'portable', 'desk');
+$breakpoint-has-pull:   ('palm', 'portable', 'desk');
+
+$gutter: 35px;
+
+@import 'libs/csswizardry-grids.scss';
+
+
+
+
+/* ==========================================================================
+   PAGE SETTINGS AND VARIABLES
+   ========================================================================== */
+
+
+// COLORS
+$GREY: #999;
+
+
+// SPACINGS
+$BASIC_SPACING: 35px;
+$BIG_SPACING: 40px;
+$HUGE_SPACING: 60px;
+
+
+// TYPOGRAPHY
+$BASIC_FONT_FAMILY: "nimbus-sans", Helvetica, Arial, sans-serif;
+
+
+// BREAKPOINTS
+$TABLET_BREAKPOINT: "screen and (min-width: 600px)";
+$DESKTOP_BREAKPOINT: "screen and (min-width: 900px)";
+$CINEMA_BREAKPOINT: "screen and (min-width: 1600px)";
+
+
+
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+
+// HEADINGS
+h1, h2, h3 { font-size: 1.75em; }
+h4, h5, h6 { font-size: 1em; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+
+// BASIC
+body {
+    font-family: $BASIC_FONT_FAMILY;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+
+// FONT SIZE
+body {
+    font-size: 16px;
+
+    @media #{$TABLET_BREAKPOINT} {
+        font-size: 17px;
+    }
+
+    @media #{$DESKTOP_BREAKPOINT} {
+        font-size: 18px;
+    }
+
+    @media #{$CINEMA_BREAKPOINT} {
+        font-size: 20px;
+    }
+}
+
+
+// LINKS
+a {
+    text-decoration: none;
+    color: $GREY;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p a {
+    color: $GREY;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+/* ==========================================================================
+   OBJECTS
+   ========================================================================== */
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+
+
+/* ==========================================================================
+   COLORS
+   ========================================================================== */
+
+
+.grey {
+    color: $GREY;
+}
+
+.grey-bg {
+    background-color: $GREY;
+}
+
+
+
+
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dd,
+p,figure,
+pre,table,fieldset,hr {
+    margin-bottom:1.5rem;
+    margin-top: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+.section-title {
+    margin-bottom: $HUGE_SPACING;
+}
+
+.band {
+    padding-top: $BASIC_SPACING;
+    padding-bottom: $BASIC_SPACING;
+
+    @media #{$TABLET_BREAKPOINT} {
+        padding-top: $BIG_SPACING;
+        padding-bottom: $BIG_SPACING;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.band--wide {
+    padding-top: $HUGE_SPACING;
+    padding-bottom: $HUGE_SPACING;
+}
+
+.band--flush {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.wrapper {
+    position: relative;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+// http://nicolasgallagher.com/micro-clearfix-hack/
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+header.site-header {
+    overflow: hidden;
+}
+
+.site-title {
+    margin-bottom: 0;
+    float: left;
+    font-size: 1.75em;
+    margin-right: 25px;
+
+    a {
+        color: black;
+    }
+
+    @media (min-width: 760px) {
+        font-size: 1.75em;
+    }
+}
+
+.secondary-navigation {
+    float: right;
+    position: relative;
+    top: 8px;
+
+     ul {
+        margin-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin-right: 12px;
+
+            a {
+                font-size: 1.2em;
+                font-weight: 100;
+            }
+
+            &.active a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: 760px) {
+        float: right;
+        top: 0;
+
+        ul li {
+            margin-right: 0;
+            margin-left: 25px;
+
+            a {
+                font-size: 1.75em;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/* ==========================================================================
+   SLIDESHOW
+   ========================================================================== */
+
+.slideshow {
+    position: relative;
+    margin-bottom: 0;
+}
+  
+.slideshow__data {
+    background-color: black;
+    color: white;
+    position: relative;
+    padding: 25px;
+    display: none;
+
+    font-size: 0.85em;
+
+    .slideshow__counter {
+        margin-bottom: 18px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+
+            li {
+                display: inline-block;
+                padding: 3px 5px;
+                margin-right: 10px;
+                font-weight: 100;
+                cursor: pointer;
+                color: #7F7F7F;
+
+                &:hover,
+                &.active {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 760px) {
+        position: absolute;
+        width: 230px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+    }
+}
+
+.slideshow__info-project {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 25px 25px 20px 25px;
+
+    transform: translate3d(0,0,0);
+    opacity: 0;
+    transition: opacity 0.4s linear;
+
+    &.active {
+        opacity: 1;
+    }
+
+    h3, h4 {
+        font-size: 1em;
+    }
+
+    h3 {
+        margin-bottom: 6px;
+    }
+
+    a {
+        color: white;
+        font-size: 0.8em;
+        margin-bottom: 0;
+        letter-spacing: 1px;
+    }
+}
+
+.slide--project {
+    line-height: 0;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   PROJECT GALLERY
+   ========================================================================== */
+
+.project-thumb {
+    transition: opacity 0.3s ease-in;
+    transform: translate3d(0,0,0);
+
+    &.loading {
+        opacity: 0;
+    }
+
+    @media (min-width: 601px) {
+        
+    }
+}
+
+.project-thumb__image {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.project-thumb__footer {
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 0.8em;
+
+    .project-thumb__title {
+        margin-bottom: 2px;
+    }
+
+    a {
+        color: black;
+    }
+}
+
+.more-projects {
+    font-size: 0.85em;
+}
+
+
+
+/* ==========================================================================
+   WORK
+   ========================================================================== */
+
+.category-selector {
+    position: absolute;
+    right: 0;
+    top: 5px; 
+
+    .category-navigation {
+        display: none;
+    }
+
+    @media (min-width: 601px) {
+        top: 8px;
+
+        select {
+            display: none;
+        }
+
+        .category-navigation {
+            display: block;
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+
+                li {
+                    display: inline-block;
+                    margin-left: 12px;
+                    letter-spacing: 1px;
+
+                    &.selected a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.navigation {
+    @extend .clearfix;
+    height: 50px;
+
+    .nav-next {
+        float: left;
+    }
+
+    .nav-previous {
+        float: right;
+    }
+
+    &.loading {
+        background: transparent url('../images/navigation-loader.gif') center center no-repeat;
+
+        .nav-links {
+            display: none;
+        }
+    }
+}
+
+.project-navigation {
+    .project-navigation__next {
+        text-align: right;
+    }
+}
+
+
+
+
+
+
+/* ==========================================================================
+   PROJECT DETAIL
+   ========================================================================== */
+
+.project-detail__images {
+    img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 35px;
+        display: block;
+    }
+}
+
+.project-description {
+    margin-bottom: $HUGE_SPACING;
+
+    p {
+        font-size: 1em;
+    }
+} 
+
+.project-title h2 {
+    text-decoration: underline;
+}
+
+
+
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+
+
+.page-template-page-aboutus-php {
+    background-color: black;
+    color: white;
+
+    .site-title a {
+        color: white;
+    }
+}
+
+.experience-list,
+.clients-list {
+    padding-top: $BASIC_SPACING;
+
+    @media (min-width: 601px) {
+        padding-top: $HUGE_SPACING;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        margin-bottom: 18px;
+    }
+}
+
+.experience-list {
+
+    ul li {
+        margin-bottom: 18px;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: 1em;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    @media (min-width: 1200px) {
+        h3 {
+            float: left;
+        }
+
+        p.site-footer__copyright {
+            text-align: right;
+        }
+    }
+}

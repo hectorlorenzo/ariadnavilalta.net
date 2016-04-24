@@ -1,0 +1,25 @@
+# ------------------------------------------
+# GITIGNORE FOR WORDPRESS
+# Really simple .gitignore for new Wordpress intallations.
+# User created plugins or themes have to be manually included in it.
+# ------------------------------------------
+
+# Ignore everything except the wp-content folder (because it contains the themes
+# and plugins), and the gitignore file itself
+/*
+!.gitignore
+!plugins/
+!themes/
+
+# Exclude all the plugins except the ones listed
+plugins/*
+
+# Exclude all the themes except the ones listed
+themes/*
+!themes/ariadnavilalta/
+
+# It is extremely important to exclude all the node-modules folders and bower-components.
+node_modules/
+bower_components/
+.sass-cache/
+.sass-cache/*
