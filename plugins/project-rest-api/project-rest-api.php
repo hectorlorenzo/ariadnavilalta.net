@@ -123,6 +123,8 @@ class ProjectsAPIEndpoint{
     {
 		global $wp;
 
+		$projects = [];
+
         $project_query_args = array(
             'post_type' => 'project'
         );
@@ -130,9 +132,26 @@ class ProjectsAPIEndpoint{
         $projects_query = new WP_Query( $project_query_args );
 
         if($projects_query)
-			$this->send_response('200 OK', json_encode($projects_query->posts));
+		{
+			while ( $projects_query->have_posts() ) {
+				$projects_query->the_post();
+
+				$projects[] = [
+					'info' => $projects_query->post,
+					'thumbnail' => get_the_post_thumbnail(),
+					'sector' => wp_get_post_terms( get_the_ID(), 'project-sector' ),
+					'location' => wp_get_post_terms( get_the_ID(), 'project-location' )
+				];
+			}
+
+			wp_reset_postdata();
+
+			$this->send_response('200 OK', json_encode( $projects ));
+		}
 		else
+		{
 			$this->send_response('Something went wrong with the pug bomb factory');
+		}
 	}
 
 	/** Response Handler

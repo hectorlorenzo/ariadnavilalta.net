@@ -15,15 +15,24 @@
 <script type="text/template" id="project-wrapper-template">
 	<ul id="project-wrapper">
 		<li class="project-wrapper-item" v-for="item in items">
-			<project-thumbnail :commentcount="item.comment_count"></project-thumbnail>
+			<project-thumbnail :pid="item.info.ID" :thumbnail="item.thumbnail" :title="item.info.post_title"></project-thumbnail>
 		</li>
 	</ul>
 </script>
 
 <script type="text/template" id="project-thumbnail-template">
-	<div class="project-thumbnail">
-		<h1>{{ commentcount }}</h1>
-	</div>
+	<article class="thumbnail">
+		<div class="thumbail__image-wrapper">
+			<figure class="thumbnail__image">
+				<a v-link="{ name: 'project', params: { pid: pid }}">{{{ thumbnail }}}</a>
+			</figure>
+		</div>
+		<h2 class="thumbnail__title">{{ title }}</h2>
+	</article>
+</script>
+
+<script type="text/template" id="project-details-template">
+	<h1>Hello</h1>
 </script>
 
 <?php wp_footer(); ?>

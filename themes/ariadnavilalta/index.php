@@ -14,6 +14,8 @@
 
 get_header(); ?>
 
-    <project-wrapper></project-wrapper>
+    <a v-link="{ path: '/projects' }">Go to Projects</a>
+
+    <router-view></router-view>
 
 <?php get_footer();

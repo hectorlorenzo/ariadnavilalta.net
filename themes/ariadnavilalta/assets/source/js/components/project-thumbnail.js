@@ -6,7 +6,7 @@ module.exports = (function() {
 
         template: document.getElementById('project-thumbnail-template').innerHTML,
 
-        props: ['commentcount']
+        props: ['title', 'thumbnail', 'pid']
 
     });
 
