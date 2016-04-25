@@ -13,6 +13,7 @@
 
 # Exclude all the plugins except the ones listed
 plugins/*
+!plugins/project-rest-api/
 
 # Exclude all the themes except the ones listed
 themes/*

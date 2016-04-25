@@ -14,6 +14,6 @@
 
 get_header(); ?>
 
-
+    <project-wrapper></project-wrapper>
 
 <?php get_footer();

@@ -21,7 +21,7 @@ class ThemeSetup {
     }
 
     function EnqueueScripts() {
-
+        wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/build/js/main.js', array(), '20151215', true );
     }
 
 }

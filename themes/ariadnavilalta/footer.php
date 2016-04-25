@@ -10,22 +10,21 @@
 
 	</div><!-- #content -->
 
-	<footer class="site-footer" role="contentinfo">
-		<div class="wrapper">
-            <div class="grid">
-                <div class="grid__item one-whole desk--one-third">
-                    <h3>Contact me</h3>
-                </div><!--
-             --><div class="grid__item one-whole desk--one-third">
-                <p>+61 478 848 295 / <a class="change-email" href="mailto:helloATariadnavilalta.net">hello@ariadnavilalta.net</a><br>Melbourne, Australia</p>
-             </div><!--
-             --><div class="grid__item one-whole desk--one-third">
-                 <p class="site-footer__copyright">@<?php echo date('Y') ?> Ariadna Vilalta</p>
-             </div>
-            </div>
-        </div>
-	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<script type="text/template" id="project-wrapper-template">
+	<ul id="project-wrapper">
+		<li class="project-wrapper-item" v-for="item in items">
+			<project-thumbnail :commentcount="item.comment_count"></project-thumbnail>
+		</li>
+	</ul>
+</script>
+
+<script type="text/template" id="project-thumbnail-template">
+	<div class="project-thumbnail">
+		<h1>{{ commentcount }}</h1>
+	</div>
+</script>
 
 <?php wp_footer(); ?>
 

@@ -21,10 +21,6 @@
 <meta property="og:site_name" content="Ariadna Vilalta portfolio"/>
 <meta property="og:description" content="A Designer who creates simple, helpful, and remarkable graphic design. From global brands to small businesses."/>
 
-
-<script src="//use.typekit.net/atx8apd.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <?php wp_head(); ?>
 </head>
 
@@ -32,7 +28,7 @@
 <div id="page" class="hfeed site">
 
     <header id="masthead" class="site-header [ band band--wide ]" role="banner">
-        
+
     </header><!-- #masthead -->
 
-    <div id="content" class="site-content">
+    <div id="content" class="site-content  js-wrapper">
