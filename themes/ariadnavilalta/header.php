@@ -32,21 +32,7 @@
 <div id="page" class="hfeed site">
 
     <header id="masthead" class="site-header [ band band--wide ]" role="banner">
-        <div class="wrapper">
-            <div class="site-branding">
-                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Ariadna Vilalta</a></h1>
-                
-                <?php if ( !is_home() ): ?>
-                <nav class="secondary-navigation">
-                    <ul>
-                        <li<?php echo is_page('work') ? ' class="active"' : '' ?>><a href="<?php echo esc_url( home_url( '/work/' ) ); ?>">Work</a></li><!--
-                     --><li<?php echo is_page('about') ? ' class="active"' : '' ?>><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About</a></li>
-                    </ul>
-                </nav>
-                <?php endif; ?>
-
-            </div>
-        </div>
+        
     </header><!-- #masthead -->
 
     <div id="content" class="site-content">
